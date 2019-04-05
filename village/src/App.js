@@ -6,6 +6,7 @@ import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 import Smurf from './components/Smurf'
+import UpdateForm from './components/UpdateForm'
 
 class App extends Component {
   constructor(props) {
@@ -13,6 +14,16 @@ class App extends Component {
     this.state = {
       smurfs: [],
     };
+  }
+
+  currentSmurf = smurf => {
+    this.setState({
+      name: smurf.name,
+      age: smurf.age,
+      height: smurf.height,
+      editingId: smurf.id
+    })
+    this.props.history.push(`/${smurf.id}`)
   }
 
   componentDidMount() {
@@ -36,6 +47,26 @@ class App extends Component {
     })
 
     this.props.history.push('/')
+  }
+
+  updateSmurf = (e)=> {
+    e.preventDefault();
+  
+    axios.put(`http://localhost:3333/smurfs/${this.state.editingId}`, {name: this.state.name, age: this.state.age, height:this.state.height})
+      .then(res => {
+        this.setState({ smurfs: res.data,
+          name: '',
+          age: '',
+          height: ''
+        });
+        console.log(res)
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  
+      this.props.history.push("/")
+  
   }
 
   deleteSmurf = (e, id) => {
@@ -76,13 +107,23 @@ class App extends Component {
         <Route exact path="/" render={props => 
         <Smurfs
         {...props}
-        smurfs={this.state.smurfs}/>
+        smurfs={this.state.smurfs}
+        currentSmurf = {this.currentSmurf}
+        />
         }/>
         <Route exact path="/:smurfId" render={props => 
         <Smurf {...props}
         smurfs={this.state.smurfs}
         deleteSmurf={this.deleteSmurf}
         />}/>
+
+        <Route path="/:smurfId/update" render={props =>
+            <UpdateForm
+            {...props}
+            handleChanges={this.handleChanges}
+            updateSmurf={this.updateSmurf}
+            {...this.state} />
+          }/>
         </div>
       </div>
     );

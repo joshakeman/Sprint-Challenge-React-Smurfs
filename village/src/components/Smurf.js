@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
+
 
 const Smurf = props => {
   const smurf = props.smurfs.find(smurf => `${smurf.id}` === props.match.params.smurfId)
@@ -11,7 +13,7 @@ const Smurf = props => {
         <strong>{smurf.height} tall</strong>
         <p>{smurf.age} smurf years old</p>
         <div className="button-wrapper">
-          <button className="btn">Update Smurf</button>
+          <Link to={`/${smurf.id}/update`}><button className="btn">Update Smurf</button></Link>
           <button onClick={e=>props.deleteSmurf(e, smurf.id)} className="btn">Delete Smurf</button>    
         </div>
         </div>

@@ -15,14 +15,14 @@ class Smurfs extends Component {
           {this.props.smurfs.map(smurf => {
             return (
             
-            <Link to={`/${smurf.id}`}>
-              <div className="smurf-container">
+            // <Link to={`/${smurf.id}`}>
+              <div onClick={()=> this.props.currentSmurf(smurf)} className="smurf-container">
                 <h3>{smurf.name}</h3>
                 <strong>{smurf.height} tall</strong>
                 <p>{smurf.age} smurf years old</p>
                 
               </div>
-              </Link>
+              // </Link>
              
             );
           })}
