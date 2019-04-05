@@ -5,6 +5,7 @@ import axios from 'axios'
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import Smurf from './components/Smurf'
 
 class App extends Component {
   constructor(props) {
@@ -43,7 +44,14 @@ class App extends Component {
     return (
       <div className="App">
         <SmurfForm addSmurf={this.addSmurf} />
-        <Smurfs smurfs={this.state.smurfs} />
+        <Route path="/" render={props => 
+        <Smurfs
+        {...props}
+        smurfs={this.state.smurfs}/>
+        }/>
+        <Route path="/:smurfId" render={props => 
+        <Smurf {...props}
+        smurfs={this.state.smurfs}/>}/>
       </div>
     );
   }
