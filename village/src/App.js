@@ -34,6 +34,8 @@ class App extends Component {
     .catch(err =>{
       console.log(err)
     })
+
+    this.props.history.push('/')
   }
 
 
@@ -43,15 +45,25 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <SmurfForm addSmurf={this.addSmurf} />
+        <div className="container">
+        <div className="navbar">
+          <h1> Smurf Village </h1>
+          <NavLink to="/smurf-form"><button className="btn">Add a Smurf!</button></NavLink>
+        </div>
+        <Route path="/smurf-form" render={pros =>
+        <SmurfForm
+          addSmurf={this.addSmurf}
+        />}/>
+        {/* <SmurfForm addSmurf={this.addSmurf} /> */}
         <Route exact path="/" render={props => 
         <Smurfs
         {...props}
         smurfs={this.state.smurfs}/>
         }/>
-        <Route path="/:smurfId" render={props => 
+        <Route exact path="/:smurfId" render={props => 
         <Smurf {...props}
         smurfs={this.state.smurfs}/>}/>
+        </div>
       </div>
     );
   }

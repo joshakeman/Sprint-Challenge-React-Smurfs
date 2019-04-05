@@ -10,13 +10,13 @@ class Smurfs extends Component {
   render() {
     return (
       <div className="Smurfs">
-        <h1>Smurf Village</h1>
-        <ul>
+        
+        <div className="smurf-wrapper">
           {this.props.smurfs.map(smurf => {
             return (
             
             <Link to={`/${smurf.id}`}>
-              <div className="Smurf">
+              <div className="smurf-container">
                 <h3>{smurf.name}</h3>
                 <strong>{smurf.height} tall</strong>
                 <p>{smurf.age} smurf years old</p>
@@ -31,7 +31,7 @@ class Smurfs extends Component {
               // />
             );
           })}
-        </ul>
+        </div>
       </div>
     );
   }

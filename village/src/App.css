@@ -1,3 +1,102 @@
-.App {
+@import url('https://fonts.googleapis.com/css?family=Baloo+Chettan|Gloria+Hallelujah');
+
+
+
+.container {
+  height: 100vh;
+  background: url('https://www.dvdtalk.com/reviews/images/reviews/197/full/1491046430_1.png')
+}
+
+.navbar {
+    padding: 20px;
+    background: white;
+    opacity: 0.95;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn {
+  font-family: 'Baloo Chettan', cursive;
+  padding: 10px 20px;
+  border-radius: 30px;
+  background-color: #88CCFF;
+  color: white;
+  border: none;
+  border: 3px solid #88CCFF;
+  cursor: pointer;
+}
+
+p{
+  font-family: 'Gloria Hallelujah', cursive;
+  color: #88CCFF;
+}
+
+h2, h3 {
+  font-family: 'Gloria Hallelujah', cursive;
+  color: #88CCFF;
+}
+
+.navbar h1 {
+  font-family: 'Gloria Hallelujah', cursive;
+  color: #88CCFF;
+  width: 31%;
   text-align: center;
+  margin: 0;
+}
+
+strong {
+  color: #88CCFF;
+}
+
+.Smurfs {
+  display: flex;
+  flex: flex-wrap;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+}
+
+/* .Smurfs ul {
+  width: 100%;
+  
+} */
+
+.smurf-wrapper {
+  display: flex;
+  flex: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.smurf-wrapper a {
+  width: 22%;
+  text-decoration: none;
+}
+.smurf-container {
+  /* width: 31%; */
+  background: white;
+  text-align: center;
+  border-radius: 30px;
+  padding: 20px;
+  margin: 0 20px;
+
+}
+
+ul a {
+  text-decoration: none;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+form {
+  padding: 20px;
+  background: white;
+  opacity: 0.95;
+  display: flex;
+  justify-content: center;
 }
