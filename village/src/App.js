@@ -44,7 +44,7 @@ class App extends Component {
     return (
       <div className="App">
         <SmurfForm addSmurf={this.addSmurf} />
-        <Route path="/" render={props => 
+        <Route exact path="/" render={props => 
         <Smurfs
         {...props}
         smurfs={this.state.smurfs}/>
