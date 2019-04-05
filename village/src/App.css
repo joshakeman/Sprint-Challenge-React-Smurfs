@@ -57,10 +57,11 @@ strong {
   margin-top: 40px;
 }
 
-/* .Smurfs ul {
-  width: 100%;
-  
-} */
+.Smurf {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
 
 .smurf-wrapper {
   display: flex;
@@ -99,4 +100,21 @@ form {
   opacity: 0.95;
   display: flex;
   justify-content: center;
+}
+
+input {
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #88CCFF;
+  margin: 0 10px;
+}
+
+::placeholder {
+  color: #88CCFF;
+  
+}
+
+.button-wrapper {
+  display: flex;
+
 }

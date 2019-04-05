@@ -38,6 +38,24 @@ class App extends Component {
     this.props.history.push('/')
   }
 
+  deleteSmurf = (e, id) => {
+    e.preventDefault()
+  
+    axios
+        .delete(`http://localhost:3333/smurfs/${id}`)
+        .then(res => {
+          console.log('Data is back, now set state and reroute', res.data);
+          this.setState({
+            smurfs: res.data
+          });
+          this.props.history.push('/');
+        })
+        .catch(err => {
+          console.log(err);
+        });
+  
+  }
+
 
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
   // Notice what your map function is looping over and returning inside of Smurfs.
@@ -62,7 +80,9 @@ class App extends Component {
         }/>
         <Route exact path="/:smurfId" render={props => 
         <Smurf {...props}
-        smurfs={this.state.smurfs}/>}/>
+        smurfs={this.state.smurfs}
+        deleteSmurf={this.deleteSmurf}
+        />}/>
         </div>
       </div>
     );
