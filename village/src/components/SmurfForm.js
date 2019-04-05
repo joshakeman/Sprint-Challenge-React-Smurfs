@@ -4,6 +4,7 @@ import axios from 'axios'
 class SmurfForm extends Component {
   constructor(props) {
     super(props);
+    console.log(this.props)
     this.state = {
       name: '',
       age: '',
@@ -32,7 +33,7 @@ class SmurfForm extends Component {
 
   makeNewSmurf = (e, smurf) => {
 
-    e.preventDefault();
+      e.preventDefault();
 
       const newSmurf = {
       name: this.state.name,
@@ -40,7 +41,7 @@ class SmurfForm extends Component {
       height: this.state.height
     }
 
-    props.addSmurf(newSmurf)
+    this.props.addSmurf(newSmurf)
 
     this.setState({
       name: '',
